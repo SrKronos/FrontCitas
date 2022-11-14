@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "http://wscitasmedicas/citas.php?datos=all",
+      "secure": false
+    }
+  }
