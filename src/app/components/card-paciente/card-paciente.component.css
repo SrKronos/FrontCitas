@@ -1,0 +1,25 @@
+.listapacientes{
+    top: -5px;
+}
+.filapersona{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.contenedortiempo{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.campotiempo{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.campopersona{
+    padding-right: 5px;
+}

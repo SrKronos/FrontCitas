@@ -14,7 +14,7 @@ export class CarruselComponent implements OnInit {
   @Input() indicadores = true;
   @Input() controles = true;
 @Input() autoSlide = false;
-@Input() tiempointervalo = 10000;
+@Input() tiempointervalo = 5000;
   selectedIndex = 0;
   constructor() { }
 

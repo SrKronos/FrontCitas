@@ -4,8 +4,8 @@
   <h3>{{persona.especialidad}}</h3>
   </div>
   --->
-  <div *ngFor="let persona of listaDoctores;">
-  <div class="border-b border-gray-200 bg-white px-2 py-2 sm:px-6 mb-0.5">
+<div *ngFor="let persona of listaDoctores;">
+  <div class="border-b border-gray-200 bg-white px-2 py-3 sm:px-6 mb-0.5">
     <div class="-ml-4 -mt-4 mb-0.5 flex flex-wrap items-center justify-between sm:flex-nowrap">
       <div class="ml-4 mt-4">
         <div class="flex items-center">
@@ -15,7 +15,7 @@
               alt="">
           </div>
           <div class="ml-2">
-            <h3 class="text-lg font-small leading-6 text-gray-900">{{persona.doctor}}</h3>
+            <h3 class="text-lg font-semibold leading-6 text-black-900">{{persona.doctor}}</h3>
             <p class="text-sm text-gray-500">
               <a href="#">{{persona.especialidad}}</a>
             </p>
@@ -24,13 +24,7 @@
       </div>
     </div>
     <div class="filapaciente">
-      <app-card-paciente [nombredoctor]="persona.codigo_doctor"></app-card-paciente>   
+      <app-card-paciente [nombredoctor]="persona.codigo_doctor"></app-card-paciente>
     </div>
-    
   </div>
-</div> 
-
-
-
-
-  
+</div>

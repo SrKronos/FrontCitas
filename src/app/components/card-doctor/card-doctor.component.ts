@@ -14,25 +14,26 @@ export class CardDoctorComponent implements OnInit {
   }
 
   public obtenerDoctores() {
-    let fecha: Date = new Date();
-    let fechaInicio = "2021-10-25";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getMilliseconds()+"";
-    let fechaFinal = "2021-10-27";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" 23:59:59.000";    
-    //console.log("Fecha Actual:"+fechaactual);
+    let f: Date = new Date();
+    let strifecha = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" "+f.getHours()+":"+f.getMinutes()+":00.000";
+    let fechaInicio = strifecha;//"2022-10-28 08:00:00.000";//+fecha.getHours()+":"+fecha.getMinutes()+":00.000";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getMilliseconds()+"";
+    let fechaFinal = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" 23:50:00.000";
     this.servicio.getJson("http://localhost/wsCitasMedicas/citas.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
       this.listaDoctores = res;
     });
   }
 
   ngOnInit(): void {
-    this.obtenerDoctores();
+    this.recargarLista();
   }
 
   recargarLista(): void {
+    this.obtenerDoctores();
     setInterval(() => {
       console.log("Cargando Doctores...");
       this.listaDoctores= [];
       this.obtenerDoctores()
-    }, 60000);//cada 10min 60000
+    }, 1800000 );//cada 10min 900000=15min  1800000=30min
   }
 }
 

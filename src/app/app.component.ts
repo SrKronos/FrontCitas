@@ -7,6 +7,8 @@ import { ServicioCitasService } from './services/servicio-citas.service';
 })
 
 export class AppComponent {
+  now: Date | undefined;
+
   title = 'appCitas'; 
   imagenes =[
     {
@@ -28,15 +30,11 @@ export class AppComponent {
 
 
   ngOnInit(): void{
-    this.cargarDoctores();
-  }
+   this.now = new Date();
+   setInterval(()=>{
+    this.now = new Date();
+   },1000)
 
-  public cargarDoctores(){
-    this.servicio.getJson('http://wscitasmedicas/citas.php?todos')
-    .subscribe(respuesta=>{
-      this.listDoctores = respuesta;
-    })
-  }
 
-  
+  }  
 }

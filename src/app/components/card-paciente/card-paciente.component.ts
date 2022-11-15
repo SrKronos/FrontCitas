@@ -13,26 +13,28 @@ export class CardPacienteComponent implements OnInit {
   constructor(private servicio: ServicioCitasService, private datepipe: DatePipe) { }
 
   public obtenerPacientes() {
-    let fecha: Date = new Date();
-    let fechaInicio = "2021-10-25";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getMilliseconds()+"";
-    let fechaFinal = "2021-10-27";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" 23:59:59.000";   
+    let f: Date = new Date();
+    let strifecha = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" "+f.getHours()+":"+f.getMinutes()+":00.000";
+    let fechaInicio = strifecha;//"2022-10-28 08:00:00.000";//+fecha.getHours()+":"+fecha.getMinutes()+":00.000";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getMilliseconds()+"";
+    let fechaFinal = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" 23:50:00.000";
     let urlws = "http://localhost/wsCitasMedicas/citas.php?doctor="+this.nombredoctor+"&fechaInicio="+fechaInicio+"&fechaFinal="+fechaFinal;
-    console.log("URL:"+urlws);
     this.servicio.getJson(urlws).subscribe((res: any) => {
       this.listaPacientes = res;
   });
   }
 
   ngOnInit(): void {
-    this.obtenerPacientes();
+    //this.obtenerPacientes();
+    this.recargarLista();
   }
 
-  recargarLista(): void {    
+  recargarLista(): void {
+    this.obtenerPacientes();    
     setInterval(() => {
       console.log("Cargando Pacientes...");
       this.listaPacientes = [];
       this.obtenerPacientes()
-    }, 6000); //5 minutos  30000
+    }, 900000); //900000=15min
   }
 
 

@@ -6,6 +6,7 @@
   <body class="h-full overflow-hidden">
   ```
 -->
+
 <div class="flex h-full">
   <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
   <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
@@ -16,4 +17,8 @@
   <div class="flex min-w-0 flex-1 flex-col overflow-hidden" style="margin-top: -25px;">
     <app-card-lista></app-card-lista>
   </div>
+  <div class="reloj">
+    <p>{{now|date:'EEEE'}}, {{now|date:'d'}} de {{now|date:'MMMM'}} del {{now|date:'YYYY'}} &nbsp; {{now|date:'hh:mm:ss'}}   </p>
+  </div>
+  
 </div>

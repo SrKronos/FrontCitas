@@ -1,3 +1,13 @@
 html{
     background-color: rgb(240, 240, 240);
 }
+
+.reloj{
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    text-transform: uppercase;
+}

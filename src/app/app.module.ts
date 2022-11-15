@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -7,6 +7,10 @@ import { CardPacienteComponent } from './components/card-paciente/card-paciente.
 import { CardListaComponent } from './components/card-lista/card-lista.component';
 import { DatePipe } from '@angular/common';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
+
+import LocalEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(LocalEs,'es');
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { CarruselComponent } from './components/carrusel/carrusel.component';
     CardPacienteComponent,
     CardListaComponent,
   ],
-  providers: [DatePipe],
-  bootstrap: [AppComponent],
+  providers: [DatePipe,{provide:LOCALE_ID,useValue:'es'}],
+  bootstrap: [AppComponent]
 })
+
 export class AppModule { }
