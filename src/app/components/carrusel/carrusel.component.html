@@ -2,6 +2,10 @@
     <img *ngFor="let imagen of imagenes; let i=index" [src]="imagen.imagenSrc" [alt]="imagen.imagenAlt"
     [ngClass]="{'image-active': selectedIndex === i}"
     class="fade">
+
+    <!--
+
+    
     <div *ngIf="indicadores" class="carusel-dot-container">
         <span *ngFor="let dot of imagenes; let i=index"
         class="dot"
@@ -25,6 +29,8 @@
               </svg>              
         </i>
     </button>
+
+    -->
 </div>
 
 

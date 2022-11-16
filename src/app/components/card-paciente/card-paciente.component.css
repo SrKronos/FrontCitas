@@ -1,25 +1,33 @@
 .listapacientes{
-    top: -5px;
+    width: 100%;
+    height: max-content;
 }
-.filapersona{
-    width: 500px;
+
+.listapacientes .filapersona{
+    width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    padding: 2px;
+    padding: 3px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2px;
+    background-color: rgb(240, 255, 240);
 }
-
-
+.campopersona{
+    width: max-content;
+    padding-right: 5px;
+    padding-left: 10px;
+}
 .contenedortiempo{
-    width: 30%;
+    width: max-content;
     display: flex;
     justify-content: space-between;
+    background-color: rgb(190, 253, 165);
+    border-radius: 20px;
+    padding: 2px;    
 }
 
 .campotiempo{
     padding-left: 3px;
     padding-right: 3px;
-}
-.campopersona{
-    padding-right: 5px;
 }

@@ -16,15 +16,11 @@ export class CardDoctorComponent implements OnInit {
 
   public obtenerDoctores() {
     moment.locale("es");
-
-
     const hoy = moment();//.format('YYYY-MM-DD HH:MM:SS');
     const tardesito = hoy.clone().add(30,'minutes');
     const formato = 'YYYY-MM-DD hh:mm:ss';
     const fechaInicio = hoy.format(formato);
     const fechaFinal = tardesito.format(formato);
-    console.log("Fecha Inicio:"+fechaInicio);
-    console.log("Fecha Final:"+fechaFinal);
     this.servicio.getJson("http://localhost/wsCitasMedicas/citas.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
       this.listaDoctores = res;
     });
@@ -44,7 +40,3 @@ export class CardDoctorComponent implements OnInit {
   }
 }
 
-class Doctores {
-  nombre: string = '';
-  especialidad: string = '';
-}

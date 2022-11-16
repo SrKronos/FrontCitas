@@ -13,8 +13,8 @@ export class CarruselComponent implements OnInit {
   @Input() imagenes: carouselImagenes[] = [];
   @Input() indicadores = true;
   @Input() controles = true;
-@Input() autoSlide = false;
-@Input() tiempointervalo = 5000;
+ @Input() autoSlide = false;
+ @Input() tiempointervalo = 5000;
   selectedIndex = 0;
   constructor() { }
 
