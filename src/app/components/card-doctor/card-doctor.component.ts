@@ -16,15 +16,15 @@ export class CardDoctorComponent implements OnInit {
 
   public obtenerDoctores() {
     moment.locale("es");
-    const today = moment();
-    let f: Date = new Date();
-    let fh: Date = new Date();
-    let strifecha = f.getUTCFullYear()+"-"+f.getUTCMonth()+"-"+f.getUTCDay()+" "+f.getUTCHours()+":"+f.getUTCMinutes()+":00.000";
-    let fechaInicio = today.format('YYYY-MM-DD HH:MM:SS');//
-    let fechaFinal = today.format('YYYY-MM-DD HH:MM:SS');
-    console.log("Fecha Desde:"+fechaInicio);
-    console.log("Fecha Hasta:"+fechaFinal);
-    console.log("Fecha:"+today.format('YYYY-MM-DD HH:MM:SS'));
+
+
+    const hoy = moment();//.format('YYYY-MM-DD HH:MM:SS');
+    const tardesito = hoy.clone().add(30,'minutes');
+    const formato = 'YYYY-MM-DD hh:mm:ss';
+    const fechaInicio = hoy.format(formato);
+    const fechaFinal = tardesito.format(formato);
+    console.log("Fecha Inicio:"+fechaInicio);
+    console.log("Fecha Final:"+fechaFinal);
     this.servicio.getJson("http://localhost/wsCitasMedicas/citas.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
       this.listaDoctores = res;
     });
