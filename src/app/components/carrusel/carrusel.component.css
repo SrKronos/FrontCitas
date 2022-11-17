@@ -51,13 +51,16 @@
 }
 
 @keyframes fade{
-    from{
+    0%{
         opacity: 0.4;
         /*transform: translateX(60%);*/
     }
-    to{
+    50%{
         opacity: 1;
        /* transform: translateX(-100%);*/
+    }
+    100%{
+        opacity: 0,0;
     }
 }
 

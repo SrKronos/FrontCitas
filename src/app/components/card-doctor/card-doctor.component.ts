@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ViewChildren,ElementRef,QueryList,HostListener } from '@angular/core';
 import { ServicioCitasService } from 'src/app/services/servicio-citas.service';
 import * as moment from 'moment';
 @Component({
@@ -8,8 +8,8 @@ import * as moment from 'moment';
 })
 export class CardDoctorComponent implements OnInit {
   listaDoctores: any = [];
-
-
+  numeroitem: string = "";
+  animar: string= "animar";
   constructor(private servicio: ServicioCitasService) {
 
   }
@@ -23,6 +23,7 @@ export class CardDoctorComponent implements OnInit {
     const fechaFinal = tardesito.format(formato);
     this.servicio.getJson("http://localhost/wsCitasMedicas/citas.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
       this.listaDoctores = res;
+      this.numeroitem = ((10*180)*-1)+"px";
     });
   }
 
@@ -38,5 +39,6 @@ export class CardDoctorComponent implements OnInit {
       this.obtenerDoctores()
     }, 1800000 );//cada 10min 900000=15min  1800000=30min
   }
+
 }
 

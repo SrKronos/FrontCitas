@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServicioCitasService } from 'src/app/services/servicio-citas.service';
 import { DatePipe } from '@angular/common';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-card-paciente',
   templateUrl: './card-paciente.component.html',
@@ -13,10 +13,12 @@ export class CardPacienteComponent implements OnInit {
   constructor(private servicio: ServicioCitasService, private datepipe: DatePipe) { }
 
   public obtenerPacientes() {
-    let f: Date = new Date();
-    let strifecha = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" "+f.getHours()+":"+f.getMinutes()+":00.000";
-    let fechaInicio = strifecha;//"2022-10-28 08:00:00.000";//+fecha.getHours()+":"+fecha.getMinutes()+":00.000";//fecha.getFullYear()+"-"+fecha.getMonth()+"-"+fecha.getDay()+" "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getMilliseconds()+"";
-    let fechaFinal = f.getFullYear()+"-"+f.getMonth()+"-"+f.getDay()+" 23:50:00.000";
+    moment.locale("es");
+    const hoy = moment();//.format('YYYY-MM-DD HH:MM:SS');
+    const tardesito = hoy.clone().add(30,'minutes');
+    const formato = 'YYYY-MM-DD hh:mm:ss';
+    const fechaInicio = hoy.format(formato);
+    const fechaFinal = tardesito.format(formato);
     let urlws = "http://localhost/wsCitasMedicas/citas.php?doctor="+this.nombredoctor+"&fechaInicio="+fechaInicio+"&fechaFinal="+fechaFinal;
     this.servicio.getJson(urlws).subscribe((res: any) => {
       this.listaPacientes = res;
