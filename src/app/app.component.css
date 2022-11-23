@@ -1,6 +1,7 @@
 html{
     background-color: rgb(240, 240, 240);
 }
+
 .contenedor{
     display: flex;
     flex-direction: row;

@@ -5,7 +5,6 @@
   </div>
   --->
 <div *ngFor="let persona of listaDoctores;" class="contenedordoctores" [style.--numeroitems]="numeroitem">
-
   <div class="tarjetadoctor" [ngClass]="{ animar: listaDoctores.lenth > 5}">
     <div>
       <div class="">
@@ -28,8 +27,4 @@
       <app-card-paciente [nombredoctor]="persona.codigo_doctor"></app-card-paciente>
     </div>
   </div>
-
-
-
-
 </div>

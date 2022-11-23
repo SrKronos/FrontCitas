@@ -21,7 +21,7 @@ export class CardDoctorComponent implements OnInit {
     const formato = 'YYYY-MM-DD hh:mm:ss';
     const fechaInicio = hoy.format(formato);
     const fechaFinal = tardesito.format(formato);
-    this.servicio.getJson("http://localhost/wsCitasMedicas/citas.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
+    this.servicio.getJson("http://localhost/wsCitasMedicas/citasg.php?fechaInicio=" + fechaInicio + "&fechaFinal=" + fechaFinal).subscribe((res: any) => {
       this.listaDoctores = res;
       this.numeroitem = ((10*180)*-1)+"px";
     });
