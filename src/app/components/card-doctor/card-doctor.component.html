@@ -3,8 +3,10 @@
   <h3>{{persona.doctor}}</h3>
   <h3>{{persona.especialidad}}</h3>
   </div>
+  let property of object | keyvalue
+let persona of listaDoctores;
   --->
-<div *ngFor="let persona of listaDoctores;" class="contenedordoctores" [style.--numeroitems]="numeroitem">
+<div *ngFor="let persona of listaDoctores " class="contenedordoctores" [style.--numeroitems]="numeroitem">
   <div class="tarjetadoctor" [ngClass]="{ animar: listaDoctores.lenth > 5}">
     <div>
       <div class="">
